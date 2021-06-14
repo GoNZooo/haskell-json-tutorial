@@ -76,6 +76,7 @@ runMain = do
   maybeUsers <- getUsers
   case maybeUsers of
     Right users -> do
+      -- `map @User name users` works to disambiguate this if we have duplicate record fields
       let userNames = map userName users
       print userNames
     Left e -> error e
